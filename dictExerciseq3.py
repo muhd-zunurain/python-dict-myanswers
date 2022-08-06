@@ -1,6 +1,3 @@
-from shutil import move
-
-
 movies = [
 {
 "name": "Usual Suspects", 
@@ -79,11 +76,17 @@ movies = [
 }
 ]
 
-def question2(moviecheck):
-    if(moviecheck['imdb'] > 5.5 ):
-        return moviecheck['name']
+def return_movie_category(movies,cat_name): 
+    out_list=[]
+    for i in movies:
+        curr_cat=i['category']
+        print(curr_cat)
+        if cat_name.lower()==curr_cat.lower():
+            out_list.append(i)
+    return out_list
 
-for key in movies:
-    name = question2(key)
-    if name is not None:
-        print(name)
+# You could change to any category you'd like
+
+out_list=return_movie_category(movies,'Thriller')
+print (out_list)
+print(type(out_list))
